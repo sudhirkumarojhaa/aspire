@@ -1,0 +1,2 @@
+export const SHOW_CARD_NUMBER = 'SHOW_CARD_NUMBER';
+export const SAVE_AMOUNT = 'SAVE_AMOUNT';
