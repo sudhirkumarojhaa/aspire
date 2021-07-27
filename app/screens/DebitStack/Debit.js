@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable react-native/no-inline-styles */
 import React, {useRef} from 'react';
-import {View, Text, Image, Animated, TouchableOpacity, ScrollView} from 'react-native';
+import {View, Text, Image, TouchableOpacity, ScrollView} from 'react-native';
 import {colorCode} from '../../design/colors.js';
 import {styles} from '../../design/styles.js';
 import Lists from '../../components/Lists.js';
@@ -55,17 +55,14 @@ export default function Debit({navigation}) {
               height: 250,
             }}>
               {showCardNumber ?
-                <TouchableOpacity style={[styles.row, styles.btw,{position: 'absolute',right: 2,top: -35}]} onPress={()=>dispatch(wpActions.showCardNumber(!showCardNumber))} activeOpacity={1}>
-                  <View style={[styles.row,{backgroundColor: colorCode.white, padding: 10, borderRadius: 4}]}>
-                    <Image style={styles.image} source={require('../../assets/images/Group.png')} />
-                    <Text style={{color: colorCode.green,paddingLeft: 10}}>Hide card number</Text>
-                  </View>
+                <TouchableOpacity style={[styles.row, styles.btw,{position: 'absolute',backgroundColor: '#fff',padding: 10,borderRadius: 5, right: 2,top: -35,elevation: 10, zIndex: 100}]} onPress={()=>dispatch(wpActions.showCardNumber(!showCardNumber))} activeOpacity={1}>
+                  <Image style={styles.image} source={require('../../assets/images/Group.png')} />
+                  <Text style={{color: colorCode.green,paddingLeft: 10}}>Hide card number</Text>
               </TouchableOpacity> :
-              <TouchableOpacity style={[styles.row, styles.btw,{position: 'absolute',right: 2,top: -35}]}
-              onPress={()=>dispatch(wpActions.showCardNumber(!showCardNumber))} activeOpacity={1}>
-              <View style={[styles.row,{backgroundColor: colorCode.white, padding: 10, borderRadius: 4}]}>
-              <Image style={styles.image} source={require('../../assets/images/remove_red_eye-24px.png')} />
-              <Text style={{color: colorCode.green,paddingLeft:10}}>Show card number</Text></View>
+              <TouchableOpacity style={[styles.row, styles.btw,{position: 'absolute',backgroundColor: '#fff',padding: 10,borderRadius: 5, right: 2,top: -35,elevation: 10, zIndex: 100}]}
+                onPress={()=>dispatch(wpActions.showCardNumber(!showCardNumber))} activeOpacity={1}>
+                <Image style={styles.image} source={require('../../assets/images/remove_red_eye-24px.png')} />
+                <Text style={{color: colorCode.green,paddingLeft:10}}>Show card number</Text>
               </TouchableOpacity>
               }
             <Image

@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import {Platform, StyleSheet} from 'react-native';
 import {colorCode} from './colors';
 
 export const styles = StyleSheet.create({
@@ -64,8 +64,8 @@ export const styles = StyleSheet.create({
   header: {
     backgroundColor: colorCode.brand,
     padding: 30,
-    paddingTop: 80,
-    height: 380,
+    paddingTop: Platform.OS === 'android' ? 20 : 80,
+    height: Platform.OS === 'android' ? 320 : 380,
     zIndex: -1000,
   },
   dollar: {

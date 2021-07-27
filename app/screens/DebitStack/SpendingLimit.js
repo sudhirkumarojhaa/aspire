@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable react-native/no-inline-styles */
 import React, {useRef,useState} from 'react';
-import {View, Text, Image, Animated, TouchableOpacity, TextInput} from 'react-native';
+import {View, Text, Image, Animated, TouchableOpacity, TextInput, Platform} from 'react-native';
 import {colorCode} from '../../design/colors.js';
 import {styles} from '../../design/styles.js';
 import {useSelector, useDispatch} from 'react-redux';
@@ -11,10 +11,9 @@ export default function SpendingLimit({navigation}) {
   const dispatch = useDispatch();
   const amounts = useSelector(state => state.appData.amount);
   const [amount,setAmount] = useState(amounts);
-console.log(amount);
   return (
     <View style={{backgroundColor: colorCode.brand}}>
-        <View style={[styles.row, styles.btw, {paddingHorizontal: 20, paddingTop: 50}]}>
+        <View style={[styles.row, styles.btw, {paddingHorizontal: 20, paddingTop:Platform.OS === 'android' ? 20 : 50}]}>
           <TouchableOpacity onPress={()=> navigation.navigate('Debit')}>
             <Image
               source={require('../../assets/images/back.png')}
@@ -27,7 +26,7 @@ console.log(amount);
           />
         </View>
         <Text style={[styles.title, styles.white, {paddingVertical: 40, paddingHorizontal: 30}]}>Spending limit</Text>
-        <View style={{backgroundColor: '#fff',borderTopLeftRadius: 25,borderTopRightRadius: 25,height :'100%', paddingVertical: 30, paddingHorizontal: 20}}>
+        <View style={{backgroundColor: '#fff',borderTopLeftRadius: 25,borderTopRightRadius: 25,height :'100%', paddingVertical: 20, paddingHorizontal: 20}}>
           <View style={styles.row}>
             <Image
               source={require('../../assets/images/g.png')}
@@ -42,7 +41,7 @@ console.log(amount);
                 S$
               </Text>
             </View>
-            <TextInput style={[styles.title, {marginLeft: 15}]} value={amount} onChangeText={(text)=> setAmount(text)} maxLength={5}/>
+            <TextInput keyboardType="phone-pad" style={[styles.title, {marginLeft: 15}]} value={amount} onChangeText={(text)=> setAmount(text)} maxLength={5}/>
           </View>
           <Text style={[styles.smallText,{color: '#22222266', fontSize: 14, paddingVertical: 20}]}>Here weekly means the last 7 days - not the calendar week</Text>
           <View style={[styles.row,styles.btw]}>
