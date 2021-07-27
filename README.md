@@ -6,6 +6,8 @@ React Native app for Credit card and Debit card payments and transactions.
 
 ```bash
 git clone https://github.com/sudhirkumarojhaa/aspire.git
+
+git checkout master
 ```
 
 ## iOS setup
