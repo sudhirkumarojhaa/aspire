@@ -9,7 +9,7 @@ const App = () => {
   return (
     <Provider store={Store}>
       <PersistGate loading={null} persistor={persistor}>
-        <StatusBar backgroundColor="000" barStyle={'light-content'} />
+        <StatusBar backgroundColor="#000" barStyle={'light-content'} />
         <Routes />
       </PersistGate>
     </Provider>
